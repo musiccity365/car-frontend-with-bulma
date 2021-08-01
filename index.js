@@ -1,7 +1,7 @@
-const endPoint = "http://localhost:3000/api/v1/cars"
+const endPoint = "http://localhost:3000/api/v1/cars";
 document.addEventListener('DOMContentLoaded', () => {
-    getCars()
-})
+    getCars();
+});
 
 // GET request for cars
 function getCars() {
