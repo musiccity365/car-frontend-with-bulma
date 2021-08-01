@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getCars()
 })
 
+// GET request for cars
 function getCars() {
     fetch(endPoint)
         .then(response => response.json())
