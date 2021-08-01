@@ -22,6 +22,6 @@ function getCars() {
                 <br><br />`;
                 // use data-id instead of id to enable the functionality of the button to be altered at a later time if necessary.
                 document.querySelector('#car-container').innerHTML += carMarkup;
-            })
-        })
+            });
+        });
 }
