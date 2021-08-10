@@ -1,4 +1,7 @@
 {
   "java.completion.enabled": false,
-  "java.test.editor.enableShortcuts": false
+  "java.test.editor.enableShortcuts": false,
+  "cSpell.ignoreWords": [
+    "hooptie"
+  ]
 }
