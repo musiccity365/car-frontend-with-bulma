@@ -4,57 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Car Fleet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Michael's Car Fleet!</title>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/javascript" src="src/car.js"></script>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">
+                Michael's Hooptie Fleet
+            </h1>
 
-    <div class="form-container">
-        <form id="create-car-form">
-            <h3>Create a new Hooptie to add to the car fleet!</h3>
-            <h4>Year</h4>
-            <input id="input-year" type="text" name="year" placeholder="Enter a year" class="input-text">
-            <h4>Make</h4>
-            <input id="input-make" type="text" name="make" placeholder="Enter a make..." class="input-text">
-            <h4>Model</h4>
-            <input id="input-model" type="text" name="model" placeholder="Enter a model..." class="input-text">
-            <h4>Select an image</h4>
-            <input id="input-url" type="text" name="image" placeholder="Enter your car image_url" class="input-text">
-            <br><br>
-            <h4>Select a manufacturer origin
-            </h4>
-            <select id="origins" name="origins">
+        </div>
+    </section>
+
+    <section class="registration-section">
+        <div class="form-container">
+            <form id="create-car-form">
+                <h3 class="title">
+                    Register a new <strong>Hooptie</strong> to the fleet!
+                </h3>
+                <label for="car-year">Year</label>
+                <input id="car-year" type="text" name="year" placeholder="Enter a year" class="input-text">
+                <label for="car-make">Make</label>
+                <input id="car-make" type="text" name="make" placeholder="Enter a make..." class="input-text">
+                <label for="car-model">Model</label>
+                <input id="car-model" type="text" name="model" placeholder="Enter a model..." class="input-text">
+                <label for="car-image_url">Select an image</label>
+                <input id="car-image_url" type="text" name="image" placeholder="Upload an image_url of your car" class="input-text">
+                <br><br>
+                <label for="origin-dropdown">Select a manufacturer origin:
+                </label>
+                <select id="origins" name="origins">
                 <option value="1">Domestic</option>
                 <option value="2">Import</option>
             </select>
-            <br><br>
-            <input id="create-button" type="submit" name="submit" value="Create New Car" class="submit">
-            <br><br>
+                <br><br>
+                <input id="create-button" type="submit" name="submit" value="Create New Car" class="submit">
+                <br><br>
+            </form>
+        </div>
+    </section>
+    <section class="car-list">
+        <div id="car-container">
 
-            <button type="button" class="btn btn-primary">Primary</button>
-        </form>
-    </div>
-    <div id="car-container">
-
-    </div>
+        </div>
+    </section>
 </body>
-
 
 </html>

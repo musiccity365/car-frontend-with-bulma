@@ -1,4 +1,6 @@
 class Car {
+
+    static all = [];
     constructor(car, carAttributes) {
         this.id = car.id;
         this.year = carAttributes.year;
@@ -10,6 +12,22 @@ class Car {
         // debugger
     }
 
+    // handleBtnClick = (e) => {
+    //     switch (e.target.class) {
+    //         case e.target.class === "Edit":
+
+    //             break;
+    //         case e.target.class === "Delete":
+
+    //             break;
+    //         case e.target.class === "Save":
+
+    //             break;
+    //         default:
+    //             console.error("Invalid, entry!")
+    //             break;
+    //     }
+    // }
     renderCarListing(car) {
         // debugger
         return `
@@ -18,7 +36,8 @@ class Car {
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
             <br><br>
-            <button data-id=${this.id}>edit</button>
+            <button class="edit" data-id=${this.id}>edit</button>
+            <button class="delete" data-id=${this.id}>delete</button>
         </div>
         <br><br>`;
     }
