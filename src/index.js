@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getCars();
     const createCarForm = document.querySelector("#create-car-form");
     createCarForm.addEventListener("submit", (e) => createFormHandler(e));
+    // createCarForm();
 
 });
 
@@ -20,12 +21,23 @@ function getCars() {
         });
 }
 
+function createCarForm() {
+    let carForm = document.getElementById("create-car-form");
+
+    carForm.innerHTML += `
+    <form id="create-car-form">
+
+    </form>`
+
+    createCarForm.addEventListener("submit", (e) => createFormHandler(e)); //this is a callback function that will be invoked automatically, therefore it does not require ()
+}
+
 function createFormHandler(e) {
     e.preventDefault();
-    const yearInput = document.querySelector('#input-year').value;
-    const makeInput = document.querySelector('#input-make').value;
-    const modelInput = document.querySelector('#input-model').value;
-    const imageInput = document.querySelector('#input-url').value;
+    const yearInput = parseInt(document.querySelector('#car-year').value);
+    const makeInput = document.querySelector('#car-make').value;
+    const modelInput = document.querySelector('#car-model').value;
+    const imageInput = document.querySelector('#car-image_url').value;
     const originId = parseInt(document.querySelector('#origins').value);
     postFetch(yearInput, makeInput, modelInput, imageInput, originId);
 }
