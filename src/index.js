@@ -36,8 +36,8 @@ function createFormHandler(e) {
     e.preventDefault();
     const yearInput = parseInt(document.querySelector('#car-year').value);
     const makeInput = document.querySelector('#car-make').value;
-    const modelInput = document.querySelector('#car-model').value;
-    const imageInput = document.querySelector('#car-image_url').value;
+    const modelInput = document.querySelector('#input-model').value;
+    const imageInput = document.querySelector('#input-url').value;
     const originId = parseInt(document.querySelector('#origins').value);
     postFetch(yearInput, makeInput, modelInput, imageInput, originId);
 }

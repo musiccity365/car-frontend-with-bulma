@@ -1,14 +1,13 @@
 class Car {
-
-    static all = [];
     constructor(car, carAttributes) {
-        this.id = car.id;
-        this.year = carAttributes.year;
-        this.make = carAttributes.make;
-        this.model = carAttributes.model;
-        this.image_url = carAttributes.image_url;
-        this.origin = carAttributes.origin;
-        Car.all.push(this);
+        this.id = car
+        this.year = carAttributes.year
+        this.make = carAttributes.make
+        this.model = carAttributes.model
+        this.image_url = carAttributes.image_url
+        this.origin = carAttributes.origin
+        Car.all.push(this)
+        console.log(this);
         // debugger
     }
 
@@ -30,14 +29,17 @@ class Car {
     // }
     renderCarListing(car) {
         // debugger
+
         return `
         <div data-id=${this.id}>
             <h3>${this.year} ${this.make} ${this.model}</h3>
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
             <br><br>
-            <button class="edit" data-id=${this.id}>edit</button>
-            <button class="delete" data-id=${this.id}>delete</button>
+            <div class="btn-group">
+                <button type="button" class="edit">Edit</button>
+                <button type="button" class="delete">Delete</button>
+            </div>
         </div>
         <br><br>`;
     }
