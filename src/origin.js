@@ -1,5 +1,8 @@
 class Origin {
-    static findById(id) {
-        return this.all.find(origin => origin.id === id);
+    constructor({ id, name, origin_id }) {
+        this.id = id;
+        this.name = name;
+        this.origin_id = origin_id;
+        Origin.all.push(this);
     }
 }

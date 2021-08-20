@@ -11,22 +11,6 @@ class Car {
         // debugger
     }
 
-    // handleBtnClick = (e) => {
-    //     switch (e.target.class) {
-    //         case e.target.class === "Edit":
-
-    //             break;
-    //         case e.target.class === "Delete":
-
-    //             break;
-    //         case e.target.class === "Save":
-
-    //             break;
-    //         default:
-    //             console.error("Invalid, entry!")
-    //             break;
-    //     }
-    // }
     renderCarListing(car) {
         // debugger
 
@@ -36,14 +20,48 @@ class Car {
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
             <br><br>
-            <button data-id=${this.id}>edit</button>
+            <button data-id=${this.id} class="delete" data-action="delete">Delete</button>
         </div>
         <br><br>`;
     }
-    static findById(id) {
-        return this.all.find(car => car.id === id);
+
+    static listenDelete() {
+        const carContainer = document.querySelector('#car-container')
+        carContainer.addEventListener("click", (e) => {
+            e.preventDefault()
+            Car.handleDelete(e)
+        })
     }
 
+    static handleDelete(e) {
+        // const id = e.target.dataset.id
+        const parent = e.target.parentNode
+        console.log(parent)
+
+        const carId = e.target.id
+        console.log(carId)
+
+        if (e.target.dataset.action === "delete") {
+            fetch(`http://localhost:3000/api/v1/cars/${carId}`, {
+                    method: "DELETE"
+                })
+                .then(res => res.json())
+                .then(data => {
+
+
+                    if (data.message) {
+                        console.log(data.message)
+                        parent.remove()
+                    }
+
+                })
+
+            .catch(error => console.warn(error))
+        }
+
+    }
+
+    /*
     renderUpdateForm(car) {
         return `
         <form id='data-id=${this.id}'>
@@ -76,6 +94,6 @@ class Car {
         </form>
         `;
     }
+    */
 }
-
 Car.all = [];

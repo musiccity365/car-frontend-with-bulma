@@ -10,13 +10,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const carContainer = document.querySelector("#car-container")
 
     // render edit form once button is clicked
-    carContainer.addEventListener('click', (e) => {
-        const id = parseInt(e.target.dataset.id)
-        const car = Car.findById(id)
-        document.querySelector('#update-car').innerHTML = car.renderUpdateForm()
-    });
-    // listen for the submit event of the edit form and handle the data
-    document.querySelector('#update-car').addEventListener('submit', e => updateFormHandler(e))
+    // carContainer.addEventListener('click', (e) => {
+    //     const id = parseInt(e.target.dataset.id)
+    //     const car = Car.findById(id)
+    //     document.querySelector('#update-car').innerHTML = car.renderUpdateForm()
+    // });
+    // // listen for the submit event of the edit form and handle the data
+    // document.querySelector('#update-car').addEventListener('submit', e => updateFormHandler(e))
 
 })
 
@@ -91,7 +91,12 @@ function postFetch(year, make, model, image_url, origin_id) {
         })
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    Car.listenDelete()
+})
+
 // Handle the Data from the Event
+/*
 function updateFormHandler(e) {
     e.preventDefault();
     const id = parseInt(e.target.dataset.id);
@@ -108,7 +113,7 @@ function updateFormHandler(e) {
 
 function patchCar(car, year, make, model, image_url, origin_id) {
     const bodyJSON = { year, make, model, image_url, origin_id }
-    fetch(`http://localhost:3000/api/v1/cars/${car.id}`, {
+    fetch(`http://localhost:3000/api/v1/cars/${car.id}/origin_id`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -119,4 +124,4 @@ function patchCar(car, year, make, model, image_url, origin_id) {
         .then(res => res.json())
         // our backend responds with the updated car instance represented as JSON
         .then(updatedNote => console.log(updatedNote));
-};
+};*/
