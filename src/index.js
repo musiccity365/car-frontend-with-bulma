@@ -1,12 +1,24 @@
 const endPoint = "http://localhost:3000/api/v1/cars";
 
 document.addEventListener('DOMContentLoaded', () => {
+    // fetch and load cars
     getCars();
-    const createCarForm = document.querySelector("#create-car-form");
-    createCarForm.addEventListener("submit", (e) => createFormHandler(e));
-    // createCarForm();
+    // listen for 'submit' event on form and handle data
+    const createCarForm = document.querySelector("#create-car-form")
+    createCarForm.addEventListener("submit", (e) => createFormHandler(e))
+        // listen for 'click' event on car container
+    const carContainer = document.querySelector("#car-container")
 
-});
+    // render edit form once button is clicked
+    carContainer.addEventListener('click', (e) => {
+        const id = parseInt(e.target.dataset.id)
+        const car = Car.findById(id)
+        document.querySelector('#update-car').innerHTML = car.renderUpdateForm()
+    });
+    // listen for the submit event of the edit form and handle the data
+    document.querySelector('#update-car').addEventListener('submit', e => updateFormHandler(e))
+
+})
 
 // GET request for cars
 function getCars() {
@@ -14,12 +26,19 @@ function getCars() {
         .then(response => response.json())
         .then(cars => {
             cars.data.forEach(car => { // use cars.data to access the car serializer
-                let newCar = new Car(car.id, car.attributes); //car is a top level object, car.attributes is another object
+                const newCar = new Car(car.id, car.attributes); //car is a top level object, car.attributes is another object
                 document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
                 // debugger
             });
         });
 }
+
+/*  CREATE - Create a new car
+    1. Create a car form
+    2. Add an Event Listener
+    3. Submit form, and fetch post to backend
+    4. Do something with the returned object
+ */
 
 function createCarForm() {
     let carForm = document.getElementById("create-car-form");
@@ -33,13 +52,14 @@ function createCarForm() {
 }
 
 function createFormHandler(e) {
-    e.preventDefault();
-    const yearInput = parseInt(document.querySelector('#car-year').value);
-    const makeInput = document.querySelector('#car-make').value;
-    const modelInput = document.querySelector('#input-model').value;
-    const imageInput = document.querySelector('#input-url').value;
-    const originId = parseInt(document.querySelector('#origins').value);
-    postFetch(yearInput, makeInput, modelInput, imageInput, originId);
+    e.preventDefault()
+    const yearInput = document.querySelector('#car-year').value
+    const makeInput = document.querySelector('#car-make').value
+    const modelInput = document.querySelector('#car-model').value
+    const imageInput = document.querySelector('#car-image_url').value
+    const originInput = document.querySelector('#origins').value
+    const originId = parseInt(originInput)
+    postFetch(yearInput, makeInput, modelInput, imageInput, originInput)
 }
 
 // POST request for cars
@@ -64,9 +84,39 @@ function postFetch(year, make, model, image_url, origin_id) {
         // .catch(err => console.log(err))
         .then(car => {
             console.log(car);
-            const carData = car.data;
+            let carData = car.data;
             let newCar = new Car(carData, carData.attributes);
             //render JSON response
             document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
         })
 }
+
+// Handle the Data from the Event
+function updateFormHandler(e) {
+    e.preventDefault();
+    const id = parseInt(e.target.dataset.id);
+    const car = Car.findById(id);
+    const year = e.target.querySelector('#car-year').value;
+    const make = e.target.querySelector('#car-make').value;
+    const model = e.target.querySelector('#car-model').value;
+    const image_url = e.target.querySelector('#car-image_url').value;
+    const origin_id = parseInt(e.target.querySelector('#origins').value);
+    patchCar(car, year, make, model, image_url, origin_id);
+}
+
+// Send the PATCH Request to the Backend
+
+function patchCar(car, year, make, model, image_url, origin_id) {
+    const bodyJSON = { year, make, model, image_url, origin_id }
+    fetch(`http://localhost:3000/api/v1/cars/${car.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(bodyJSON),
+        })
+        .then(res => res.json())
+        // our backend responds with the updated car instance represented as JSON
+        .then(updatedNote => console.log(updatedNote));
+};
