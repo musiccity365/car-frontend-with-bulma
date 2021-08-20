@@ -42,7 +42,7 @@ class Car {
         console.log(carId)
 
         if (e.target.dataset.action === "delete") {
-            fetch(`http://localhost:3000/api/v1/cars/${carId}`, {
+            fetch(`http://localhost:3000/api/v1/cars/id}`, {
                     method: "DELETE"
                 })
                 .then(res => res.json())
