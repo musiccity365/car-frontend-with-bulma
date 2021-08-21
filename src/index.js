@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 // GET request for cars
 function getCars() {
     fetch(endPoint)
-        .then(response => response.json())
+        .then(
+            response => response.json()
+        )
         .then(cars => {
             cars.data.forEach(car => { // use cars.data to access the car serializer
                 const newCar = new Car(car.id, car.attributes); //car is a top level object, car.attributes is another object
@@ -80,12 +82,15 @@ function postFetch(year, make, model, image_url, origin_id) {
             },
             body: JSON.stringify(bodyData)
         })
-        .then(response => response.json())
+        .then(
+            response => response.json()
+        )
         // .catch(err => console.log(err))
         .then(car => {
             console.log(car);
-            let carData = car.data;
-            let newCar = new Car(carData, carData.attributes);
+
+            let carData = car;
+            let newCar = new Car(carData.id, carData);
             //render JSON response
             document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
         })

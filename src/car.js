@@ -42,21 +42,21 @@ class Car {
         console.log(carId)
 
         if (e.target.dataset.action === "delete") {
-            fetch(`http://localhost:3000/api/v1/cars/id}`, {
-                    method: "DELETE"
-                })
-                .then(res => res.json())
-                .then(data => {
+
+            fetch(endPoint)
+            params.delete(carId)
+                .then(
+                    response => response.json()
+                )   
+                .then(car => {
+                    car.data.forEach(car => { // use cars.data to access the car serializer
+                        const newCar = new Car(car.id, car.attributes); //car is a top level object, car.attributes is another object
+                        document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
+                        // debugger
+                    });
+                });
 
 
-                    if (data.message) {
-                        console.log(data.message)
-                        parent.remove()
-                    }
-
-                })
-
-            .catch(error => console.warn(error))
         }
 
     }
