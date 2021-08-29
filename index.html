@@ -6,9 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michael's Car Fleet!</title>
-    <script type="text/javascript" src="src/index.js"></script>
+    <script type="text/javascript" src="src/origin.js"></script>
+    <script type="text/javascript" src="src/originApi.js"></script>
     <script type="text/javascript" src="src/car.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <script type="text/javascript" src="src/carApi.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
 </head>
 
 <body>
@@ -23,7 +26,7 @@
 
     <section class="section">
         <div class="form-container">
-            <form id="create-car-form">
+            <form id="car-form">
                 <h3 class="title">
                     Register a new <strong>Hooptie</strong> to the fleet!
                 </h3>
@@ -38,7 +41,7 @@
                 <br><br>
                 <label for="origin-dropdown">Select a manufacturer origin:
                 </label>
-                <select id="origins" name="origins">
+                <select id="origin-dropdown" name="origin_id">
                 <option value="1">Domestic</option>
                 <option value="2">Import</option>
                 </select>
@@ -52,6 +55,7 @@
         <div id="car-container">
             <h3 class="title">
                 Our Current Inventory!
+                <ul id="car-list"></ul>
             </h3>
             <!-- <div id="update-car">
 
