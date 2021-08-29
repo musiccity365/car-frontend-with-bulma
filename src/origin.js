@@ -2,7 +2,7 @@ class Origin {
 
     static all = []
 
-    static origins = document.getElementById('origins')
+    static originDropDown = document.getElementById('origin-dropdown')
 
     constructor({ id, name }) {
         this.id = id
@@ -23,7 +23,7 @@ class Origin {
     }
 
     addToDom() {
-        Origin.origins.append(this.render())
+        Origin.originDropDown.append(this.render())
     }
 
     addToDropDown() {

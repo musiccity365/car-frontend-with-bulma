@@ -33,7 +33,7 @@ class Car {
         // debugger
         this.element.innerHTML = `
         <div data-id=${this.id}>
-            <h3>${this.attributes}</h3>
+            <h3>${this.year} ${this.make} ${this.model}</h3>
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
         </div>
@@ -43,7 +43,7 @@ class Car {
     }
 
     attachToDom() {
-        list.appendChild(this.renderLi())
+        list.append(this.renderLi())
     }
 
     deleteCar = (e) => {
