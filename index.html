@@ -7,25 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michael's Car Fleet!</title>
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 </head>
 
 <body>
     <section class="section">
         <div class="container">
             <h1 class="title">
-                Michael's Hooptie Fleet
+                Welcome to Michael's Hooptie Fleet
             </h1>
 
         </div>
     </section>
 
     <section class="section">
+        <div id="car-container">
+            <h3 class="title">Our Current Inventory!</h3>
+            <ul id="car-fleet"></ul>
+        </div>
+    </section>
+    <section class="section">
         <div class="form-container">
             <form id="car-form">
-                <h3 class="title">
-                    Register a new <strong>Hooptie</strong> to the fleet!
-                </h3>
+                <h3 class="title">Register a new <strong>Hooptie</strong> to the fleet!</h3>
                 <label for="car-year">Year</label>
                 <input id="car-year" type="text" name="year" placeholder="Enter a year" class="input-text">
                 <label for="car-make">Make</label>
@@ -46,24 +50,12 @@
             </form>
         </div>
     </section>
-    <section class="section">
-        <div id="car-container">
-            <h3 class="title">
-                Our Current Inventory!
-                <ul id="car-list"></ul>
-            </h3>
-            <!-- <div id="update-car">
 
-            </div> -->
-
-        </div>
-    </section>
     <script type="text/javascript" src="src/origin.js"></script>
     <script type="text/javascript" src="src/originApi.js"></script>
     <script type="text/javascript" src="src/car.js"></script>
     <script type="text/javascript" src="src/carApi.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </body>
-
 
 </html>

@@ -2,7 +2,7 @@ class Car {
 
     static all = []
 
-    static container = document.getElementById('car-list')
+    static container = document.getElementById('car-fleet')
 
     constructor({ id, year, make, model, image_url, origin }) {
         this.id = id
@@ -12,15 +12,15 @@ class Car {
         this.image_url = image_url
         this.origin = origin
 
-        this.element = document.createElement('li')
+        this.element = document.createElement('car-listing')
         this.element.id = `car-${id}`
         this.element.dataset.id = id
 
-        this.element.addEventListener('click', this.handleBtnClick)
+        this.element.addEventListener('click', this.handleBtnClick) //callback function
 
         Car.all.push(this)
-        console.log(this);
-        // debugger
+            // console.log(this);
+            // debugger
     }
 
     handleBtnClick = (e) => {
@@ -29,7 +29,7 @@ class Car {
         }
     }
 
-    renderLi() {
+    renderCarListing() {
         // debugger
         this.element.innerHTML = `
         <div data-id=${this.id}>
@@ -43,7 +43,7 @@ class Car {
     }
 
     attachToDom() {
-        list.append(this.renderLi())
+        fleet.append(this.renderCarListing())
     }
 
     deleteCar = (e) => {

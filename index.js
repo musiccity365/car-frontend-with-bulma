@@ -1,7 +1,7 @@
 const endPoint = "http://localhost:3000"
 const carsURL = endPoint + "/api/v1/cars"
 
-const list = document.getElementById("car-list")
+const fleet = document.getElementById("car-fleet")
 
 const form = document.getElementById('car-form')
 const yearInput = document.getElementById('car-year')
