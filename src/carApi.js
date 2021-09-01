@@ -13,7 +13,6 @@ class CarApi {
     }
 
     static createCar() {
-
         const formData = {
             year: yearInput.value,
             make: makeInput.value,
@@ -52,6 +51,4 @@ class CarApi {
             .then(r => r.json())
             .then(json => alert(json.message))
     }
-
-
 }

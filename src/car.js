@@ -16,17 +16,11 @@ class Car {
         this.element.id = `car-${id}`
         this.element.dataset.id = id
 
-        this.element.addEventListener('click', this.handleBtnClick) //callback function
+        this.element.addEventListener('click', this.deleteCar) //callback function
 
         Car.all.push(this)
             // console.log(this);
             // debugger
-    }
-
-    handleBtnClick = (e) => {
-        if (e.target.innerText === "delete") {
-            this.deleteCar(e)
-        }
     }
 
     renderCarListing() {
