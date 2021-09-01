@@ -3,13 +3,13 @@ const carsURL = endPoint + "/api/v1/cars"
 
 const fleet = document.getElementById("car-fleet")
 
-const form = document.getElementById('car-form')
-const yearInput = document.getElementById('car-year')
-const makeInput = document.getElementById('car-make')
-const modelInput = document.getElementById('car-model')
-const imageInput = document.getElementById('car-image_url')
+const form = document.getElementById("car-form")
+const yearInput = document.getElementById("car-year")
+const makeInput = document.getElementById("car-make")
+const modelInput = document.getElementById("car-model")
+const imageInput = document.getElementById("car-image_url")
 
-const dropdown = document.getElementById('origin-dropdown')
+const dropdown = document.getElementById("origin-dropdown")
 const originNameInput = document.getElementById("origin-name")
 
 function handleFormSubmit(e) {
@@ -23,13 +23,13 @@ CarApi.getCars()
 OriginApi.getOrigins()
 
 
-// document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener("DOMContentLoaded", () => {
 //     // fetch and load cars
 //     getCars();
-//     // listen for 'submit' event on form and handle data
+//     // listen for "submit" event on form and handle data
 //     const createCarForm = document.querySelector("#create-car-form")
 //     createCarForm.addEventListener("submit", (e) => createFormHandler(e))
-//         // listen for 'click' event on car container
+//         // listen for "click" event on car container
 //     const carContainer = document.querySelector("#car-container")
 
 
@@ -44,7 +44,7 @@ OriginApi.getOrigins()
 //         .then(cars => {
 //             cars.data.forEach(car => { // use cars.data to access the car serializer
 //                 const newCar = new Car(car.id, car.attributes); //car is a top level object, car.attributes is another object
-//                 document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
+//                 document.querySelector("#car-container").innerHTML += newCar.renderCarListing();
 //                 // debugger
 //             });
 //         });
@@ -70,11 +70,11 @@ OriginApi.getOrigins()
 
 // function createFormHandler(e) {
 //     e.preventDefault()
-//     const yearInput = document.querySelector('#car-year').value
-//     const makeInput = document.querySelector('#car-make').value
-//     const modelInput = document.querySelector('#car-model').value
-//     const imageInput = document.querySelector('#car-image_url').value
-//     const originInput = document.querySelector('#origins').value
+//     const yearInput = document.querySelector("#car-year").value
+//     const makeInput = document.querySelector("#car-make").value
+//     const modelInput = document.querySelector("#car-model").value
+//     const imageInput = document.querySelector("#car-image_url").value
+//     const originInput = document.querySelector("#origins").value
 //     const originId = parseInt(originInput)
 //     postFetch(yearInput, makeInput, modelInput, imageInput, originInput)
 // }
@@ -107,10 +107,10 @@ OriginApi.getOrigins()
 //             let carData = car;
 //             let newCar = new Car(carData.id, carData);
 //             //render JSON response
-//             document.querySelector('#car-container').innerHTML += newCar.renderCarListing();
+//             document.querySelector("#car-container").innerHTML += newCar.renderCarListing();
 //         })
 // }
 
-// document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener("DOMContentLoaded", () => {
 //     Car.listenDelete()
 // })

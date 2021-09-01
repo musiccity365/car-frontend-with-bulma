@@ -37,7 +37,7 @@ class Car {
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
         </div>
-            <button data-id=${this.id} class="delete" data-action="delete">Delete</button>
+            <button data-id=${this.id} data-action="delete">Delete</button>
         <br><br>`
         return this.element
     }
@@ -49,5 +49,21 @@ class Car {
     deleteCar = (e) => {
         this.element.remove()
         CarApi.deleteCar(this.id)
+    }
+
+    static filterByOrigin(filteredOrigin) {
+        if (filteredOrigin) {
+            for (const car of Car.all) {
+                if (car.originId === parseInt(filteredOrigin.id)) {
+                    origin.style.display = ""
+                } else {
+                    origin.style.display = "none"
+                }
+            }
+        } else {
+            for (const car of Car.all) {
+                origin.style.display = ""
+            }
+        }
     }
 }
