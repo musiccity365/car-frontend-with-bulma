@@ -12,6 +12,9 @@ const imageInput = document.getElementById("car-image_url")
 const dropdown = document.getElementById("origin-dropdown")
 const originNameInput = document.getElementById("origin-name")
 
+CarApi.getCars()
+OriginApi.getOrigins()
+
 function handleFormSubmit(e) {
     e.preventDefault()
 
@@ -19,8 +22,6 @@ function handleFormSubmit(e) {
     form.reset()
 }
 
-CarApi.getCars()
-OriginApi.getOrigins()
 
 
 // document.addEventListener("DOMContentLoaded", () => {

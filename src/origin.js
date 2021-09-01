@@ -22,10 +22,10 @@ class Origin {
         return this.element
     }
 
-    addToDom() {
-        Origin.originDropDown.append(this.render())
-        this.addListeners()
-    }
+    // addToDom() {
+    //     Origin.originDropDown.append(this.render())
+    //     this.addListeners()
+    // }
 
     addListeners() {
         this.element.addEventListener('click', this.setActiveOrigin)

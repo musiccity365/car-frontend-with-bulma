@@ -12,11 +12,11 @@ class Car {
         this.image_url = image_url
         this.origin = origin
 
-        this.element = document.createElement('car-listing')
-        this.element.id = `car-${id}`
-        this.element.dataset.id = id
+        // this.element = document.createElement('car-listing')
+        // this.element.id = `car-${id}`
+        // this.element.dataset.id = id
 
-        this.element.addEventListener('click', this.deleteCar) //callback function
+        // this.element.addEventListener('click', this.deleteCar) //callback function
 
         Car.all.push(this)
             // console.log(this);
@@ -33,7 +33,7 @@ class Car {
         eachCar.innerHTML += `
         <div data-id=${eachCar.id}>
             <h3>${eachCar.year} ${eachCar.make} ${eachCar.model}</h3>
-            <p>${eachCar.origin.name}</p>
+            <p>${eachCar.originId}</p>
             <img src=${eachCar.image_url} height="200" width="250">
         </div>
             <button data-id=${eachCar.id} data-action="delete">Delete</button>

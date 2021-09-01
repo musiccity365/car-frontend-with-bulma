@@ -10,7 +10,8 @@ class OriginApi {
                         id: element.id,
                         ...element.attributes
                     })
-                    o.addToDom()
+                    // o.addToDom()
+                    
                     o.addToDropDown()
                 })
             })
