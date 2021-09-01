@@ -25,19 +25,21 @@ class Car {
 
     renderCarListing() {
         // debugger
-        this.element.innerHTML = `
-        <div data-id=${this.id}>
-            <h3>${this.year} ${this.make} ${this.model}</h3>
-            <p>${this.origin.name}</p>
-            <img src=${this.image_url} height="200" width="250">
-        </div>
-            <button data-id=${this.id} data-action="delete">Delete</button>
-        <br><br>`
-        return this.element
-    }
+        let carElement = document.getElementById("fleet-container")
+        let eachCar = document.createElement("div")
+        eachCar.id = `${this.id}`
+        eachCar.className = "car-listing"
 
-    attachToDom() {
-        fleet.append(this.renderCarListing())
+        eachCar.innerHTML += `
+        <div data-id=${eachCar.id}>
+            <h3>${eachCar.year} ${eachCar.make} ${eachCar.model}</h3>
+            <p>${eachCar.origin.name}</p>
+            <img src=${eachCar.image_url} height="200" width="250">
+        </div>
+            <button data-id=${eachCar.id} data-action="delete">Delete</button>
+        <br><br>`
+        carElement.appendChild(eachCar)
+
     }
 
     deleteCar = (e) => {

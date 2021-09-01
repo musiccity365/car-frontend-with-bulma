@@ -7,7 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michael's Car Fleet!</title>
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+    <script defer src="src/origin.js" charset="UTF-8"></script>
+    <script defer src="src/originApi.js" charset="UTF-8"></script>
+    <script defer src="src/car.js" charset="UTF-8"></script>
+    <script defer src="src/carApi.js" charset="UTF-8"></script>
+    <script defer src="index.js" charset="UTF-8"></script>
+
 </head>
 
 <body>
@@ -42,6 +49,9 @@
                 <label for="origin-dropdown">Select a manufacturer origin:
                 </label>
                 <select id="origin-dropdown" name="origin_id">
+                    <option selected>Select Origin</option>
+                    <option value="1">Domestic</option>
+                    <option value="2">Import</option>
                 </select>
                 <br><br>
                 <input type="submit" value="Create New Car">
@@ -49,12 +59,9 @@
             </form>
         </div>
     </section>
-
-    <script type="text/javascript" src="src/origin.js"></script>
-    <script type="text/javascript" src="src/originApi.js"></script>
-    <script type="text/javascript" src="src/car.js"></script>
-    <script type="text/javascript" src="src/carApi.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <section class="section">
+        <div id="fleet-container"></div>
+    </section>
 </body>
 
 </html>

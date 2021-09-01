@@ -7,7 +7,7 @@ class CarApi {
             .then(data => {
                 data["data"].forEach(car => {
                     const c = new Car({ id: car.id, ...car.attributes })
-                    c.attachToDom()
+                    c.renderCarListing()
                 })
             })
     }
