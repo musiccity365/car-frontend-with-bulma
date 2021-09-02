@@ -32,14 +32,19 @@ class Car {
 
         eachCar.innerHTML += `
         <div data-id=${eachCar.id}>
-            <h3>${eachCar.year} ${eachCar.make} ${eachCar.model}</h3>
-            <p>${eachCar.originId}</p>
-            <img src=${eachCar.image_url} height="200" width="250">
+            <h3>${this.year} ${this.make} ${this.model}</h3>
+            <p>${this.origin.name}</p>
+            <img src=${this.image_url} height="200" width="250">
         </div>
             <button data-id=${eachCar.id} data-action="delete">Delete</button>
         <br><br>`
         carElement.appendChild(eachCar)
 
+    }
+
+    static setYearInput(){
+        yearInput = document.getElementById("car-year").value;
+        this.year = carYear;
     }
 
     deleteCar = (e) => {

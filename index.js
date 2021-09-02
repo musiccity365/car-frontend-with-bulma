@@ -1,27 +1,30 @@
+document.addEventListener("DOMContentLoaded", () => {
+    CarApi.getCars()
+    OriginApi.getOrigins()
+
+    yearInput.addEventListener("change", (e) => {})
+})
+
+// function handleFormSubmit(e) {
+//     e.preventDefault()
+    
+//     CarApi.createCar()
+//     form.reset()
+// }
+
 const endPoint = "http://localhost:3000"
 const carsURL = endPoint + "/api/v1/cars"
 
-const fleet = document.getElementById("car-fleet")
+let fleet = document.getElementById("car-fleet")
 
-const form = document.getElementById("car-form")
-const yearInput = document.getElementById("car-year")
-const makeInput = document.getElementById("car-make")
-const modelInput = document.getElementById("car-model")
-const imageInput = document.getElementById("car-image_url")
+let form = document.getElementById("car-form")
+let yearInput = document.getElementById("car-year")
+let makeInput = document.getElementById("car-make")
+let modelInput = document.getElementById("car-model")
+let imageInput = document.getElementById("car-image_url")
 
 const dropdown = document.getElementById("origin-dropdown")
 const originNameInput = document.getElementById("origin-name")
-
-CarApi.getCars()
-OriginApi.getOrigins()
-
-function handleFormSubmit(e) {
-    e.preventDefault()
-
-    CarApi.createCar()
-    form.reset()
-}
-
 
 
 // document.addEventListener("DOMContentLoaded", () => {
