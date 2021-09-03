@@ -28,6 +28,11 @@ class Car {
             // debugger
             let carElement = document.getElementById("fleet-container")
             let eachCar = document.createElement("div")
+            const deleteBtn = document.createElement("button")
+            deleteBtn.addEventListener("click", (e) => {
+                this.deleteCar(this.id)
+            })
+            deleteBtn.name = "delete"
             eachCar.id = `${this.id}`
             eachCar.className = "car-listing"
 
@@ -37,9 +42,10 @@ class Car {
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
         </div>
-            <button data-id=${this.id} data-action="delete">Delete</button>
+
         <br><br>`
                 // return this.element
+            eachCar.appendChild(deleteBtn)
             carElement.appendChild(eachCar)
 
             // document.getElementById("delete").addEventListener("click", (e) => {console.log(this.id);CarApi.deleteCar(e.target.dataset.id)})
@@ -87,10 +93,10 @@ class Car {
         fleet.append(this.renderCarListing())
     }
 
-    deleteCar = (e) => {
-        console.log(this.id)
+    deleteCar = (id) => {
+        console.log(id)
         this.element.remove()
-        CarApi.deleteCar(this.id)
+        CarApi.deleteCar(id)
     }
 
     static filterByOrigin(filteredOrigin) {
