@@ -23,20 +23,15 @@ class Car {
             // debugger
     }
 
-    handleBtnClick = (e) => {
-        if (e.target.innerText === "delete") {
-            this.deleteCar(e)
-        }
-    }
 
     renderCarListing() {
-        // debugger
-        // let carElement = document.getElementById("fleet-container")
-        // let eachCar = document.createElement("div")
-        // eachCar.id = `${this.id}`
-        // eachCar.className = "car-listing"
+            // debugger
+            let carElement = document.getElementById("fleet-container")
+            let eachCar = document.createElement("div")
+            eachCar.id = `${this.id}`
+            eachCar.className = "car-listing"
 
-        this.innerHTML += `
+            eachCar.innerHTML += `
         <div data-id=${this.id}>
             <h3>${this.year} ${this.make} ${this.model}</h3>
             <p>${this.origin.name}</p>
@@ -44,12 +39,12 @@ class Car {
         </div>
             <button data-id=${this.id} data-action="delete">Delete</button>
         <br><br>`
-        return this.element
-        // carElement.appendChild(eachCar)
+                // return this.element
+            carElement.appendChild(eachCar)
 
-        // document.getElementById("delete").addEventListener("click", (e) => {console.log(this.id);CarApi.deleteCar(e.target.dataset.id)})
-    }
-    // createCarForm = (e) => {
+            // document.getElementById("delete").addEventListener("click", (e) => {console.log(this.id);CarApi.deleteCar(e.target.dataset.id)})
+        }
+        // createCarForm = (e) => {
 
     //     carForm.innerHTML += `
     //     <form id="car-form">
