@@ -32,18 +32,18 @@ class Car {
             deleteBtn.addEventListener("click", (e) => {
                 this.deleteCar(this.id)
             })
-            deleteBtn.name = "delete"
+            deleteBtn.innerText = "delete"
             eachCar.id = `${this.id}`
             eachCar.className = "car-listing"
 
             eachCar.innerHTML += `
+            <br><br>
         <div data-id=${this.id}>
             <h3>${this.year} ${this.make} ${this.model}</h3>
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
         </div>
-
-        <br><br>`
+        `
                 // return this.element
             eachCar.appendChild(deleteBtn)
             carElement.appendChild(eachCar)
