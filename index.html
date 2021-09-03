@@ -13,7 +13,7 @@
     <script defer src="src/originApi.js" charset="UTF-8"></script>
     <script defer src="src/car.js" charset="UTF-8"></script>
     <script defer src="src/carApi.js" charset="UTF-8"></script>
-    <script defer src="index.js" charset="UTF-8"></script>
+    <script defer src="src/index.js" charset="UTF-8"></script>
 
 </head>
 
@@ -26,7 +26,6 @@
 
         </div>
     </section>
-
 
     <section class="section">
         <div class="form-container">
@@ -49,7 +48,7 @@
                     <option value="2">Import</option> -->
                 </select>
                 <br><br>
-                <input type="submit" value="Create New Car">
+                <input type="submit" value="Create New Car" id="add-btn">
                 <br><br>
             </form>
         </div>
@@ -57,7 +56,9 @@
 
     <section class="section">
         <h3 class="title">Our Current Inventory!</h3>
-        <div id="fleet-container"></div>
+        <div id="fleet-container">
+            <ul id="car-fleet"></ul>
+        </div>
     </section>
 </body>
 

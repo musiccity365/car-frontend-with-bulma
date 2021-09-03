@@ -7,7 +7,7 @@ class CarApi {
             .then(data => {
                 data["data"].forEach(car => {
                     const c = new Car({ id: car.id, ...car.attributes })
-                    // debugger
+                        // debugger
                     c.renderCarListing()
                 })
             })
@@ -18,8 +18,8 @@ class CarApi {
             year: yearInput.value,
             make: makeInput.value,
             model: modelInput.value,
-            image: imageInput.value,
-            origin: dropdown.value
+            image_url: imageInput.value,
+            origin_id: dropdown.value
         }
 
         const configObj = {
