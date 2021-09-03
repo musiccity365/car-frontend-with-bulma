@@ -13,8 +13,8 @@ class Car {
         this.origin = origin
 
         this.element = document.createElement('car-listing')
-        // this.element.id = `car-${id}`
-        // this.element.dataset.id = id
+        this.element.id = `car-${id}`
+        this.element.dataset.id = id
 
         this.element.addEventListener('click', this.deleteCar) //callback function
 
@@ -23,25 +23,32 @@ class Car {
             // debugger
     }
 
+    handleBtnClick = (e) => {
+        if (e.target.innerText === "delete") {
+            this.deleteCar(e)
+        }
+    }
+
     renderCarListing() {
         // debugger
-        let carElement = document.getElementById("fleet-container")
-        let eachCar = document.createElement("div")
-        eachCar.id = `${this.id}`
-        eachCar.className = "car-listing"
+        // let carElement = document.getElementById("fleet-container")
+        // let eachCar = document.createElement("div")
+        // eachCar.id = `${this.id}`
+        // eachCar.className = "car-listing"
 
-        eachCar.innerHTML += `
-        <div data-id=${eachCar.id}>
+        this.innerHTML += `
+        <div data-id=${this.id}>
             <h3>${this.year} ${this.make} ${this.model}</h3>
             <p>${this.origin.name}</p>
             <img src=${this.image_url} height="200" width="250">
         </div>
-            <button data-id=${eachCar.id} data-action="delete">Delete</button>
+            <button data-id=${this.id} data-action="delete">Delete</button>
         <br><br>`
-        carElement.appendChild(eachCar)
+        return this.element
+        // carElement.appendChild(eachCar)
 
+        // document.getElementById("delete").addEventListener("click", (e) => {console.log(this.id);CarApi.deleteCar(e.target.dataset.id)})
     }
-
     // createCarForm = (e) => {
 
     //     carForm.innerHTML += `
@@ -81,7 +88,12 @@ class Car {
     //     this.origin = carOrigin
     // }
 
+    attachToDom() {
+        fleet.append(this.renderCarListing())
+    }
+
     deleteCar = (e) => {
+        console.log(this.id)
         this.element.remove()
         CarApi.deleteCar(this.id)
     }
