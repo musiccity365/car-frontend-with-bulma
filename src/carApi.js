@@ -18,8 +18,8 @@ class CarApi {
             year: yearInput.value,
             make: makeInput.value,
             model: modelInput.value,
-            image: imageInput.value,
-            origin: dropdown.value
+            image_url: imageInput.value,
+            origin_id: dropdown.value
         }
 
         const configObj = {

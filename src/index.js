@@ -3,23 +3,28 @@ document.addEventListener("DOMContentLoaded", () => {
     OriginApi.getOrigins()
 // debugger
 
-    Car.createCarForm = document.querySelector("car-form")
-    createCarForm.addEventListener("submit", (e) => {Car.createFormHandler(e)})
+    // Car.createCarForm = document.querySelector("car-form")
+    // createCarForm.addEventListener("submit", (e) => {Car.createFormHandler(e)})
         // listen for "click" event on car container
     fleet = document.querySelector("car-fleet")
-    let yearInput = document.getElementById("car-year")
-    let makeInput = document.getElementById("car-make")
-    let modelInput = document.getElementById("car-model")
-    let imageInput = document.getElementById("car-image_url")
-    // let dropdown = document.querySelector("#origin-dropdown")
-    let originNameInput = document.getElementById("origin_id")
+    yearInput = document.getElementById("car-year")
+    makeInput = document.getElementById("car-make")
+    modelInput = document.getElementById("car-model")
+    imageInput = document.getElementById("car-image_url")
+    dropdown = document.querySelector("#origin-dropdown")
+    originNameInput = document.getElementById("origin_id")
     // let originId = parseInt(originNameInput)
 
-    yearInput.addEventListener("change", (e) => {Car.setYearInput(e)})
-    makeInput.addEventListener("change", (e) => {Car.setMakeInput(e)})
-    modelInput.addEventListener("change", (e) => {Car.setModelInput(e)})
-    imageInput.addEventListener("change", (e) => {Car.setImageInput(e)})
-    originNameInput.addEventListener("change", (e) => {Car.setOriginInput(e)})
+    let addBtn = document.getElementById("add-btn")
+    addBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        CarApi.createCar()
+    })
+    // yearInput.addEventListener("change", (e) => {Car.setYearInput(e)})
+    // makeInput.addEventListener("change", (e) => {Car.setMakeInput(e)})
+    // modelInput.addEventListener("change", (e) => {Car.setModelInput(e)})
+    // imageInput.addEventListener("change", (e) => {Car.setImageInput(e)})
+    // originNameInput.addEventListener("change", (e) => {Car.setOriginInput(e)})
 
     // const formData = document.getElementById("car-form")
     // formData.addEventListener("submit", (e) => {Car.createFormHandler(e)})
@@ -45,7 +50,7 @@ let fleet = document.getElementById("car-fleet")
 // let dropdown = document.querySelector("#origin-dropdown")
 // let originNameInput = document.querySelector("#origins")
 // let originId = parseInt(originNameInput)
-CarApi.createCar()
+// CarApi.createCar()
 
 
 // document.addEventListener("DOMContentLoaded", () => {
@@ -82,28 +87,28 @@ CarApi.createCar()
     4. Do something with the returned object
  */
 
-function createCarForm() {
-    let carForm = document.getElementById("create-car-form");
+// function createCarForm() {
+//     let carForm = document.getElementById("create-car-form");
 
-    carForm.innerHTML += `
-    <form id="create-car-form">
+//     carForm.innerHTML += `
+//     <form id="create-car-form">
 
-    </form>`
+//     </form>`
 
-    createCarForm.addEventListener("submit", (e) => createFormHandler(e)); //this is a callback function that will be invoked automatically, therefore it does not require ()
-}
+//     createCarForm.addEventListener("submit", (e) => createFormHandler(e)); //this is a callback function that will be invoked automatically, therefore it does not require ()
+// }
 
-function createFormHandler(e) {
-    // debugger
-    e.preventDefault()
-    // const yearInput = document.querySelector("#car-year").value
-    // const makeInput = document.querySelector("#car-make").value
-    // const modelInput = document.querySelector("#car-model").value
-    // const imageInput = document.querySelector("#car-image_url").value
-    // const originNameInput = document.querySelector("#origins").value
-    // // const originId = parseInt(originNameInput)
-    createCar(yearInput, makeInput, modelInput, imageInput, originNameInput)
-}
+// function createFormHandler(e) {
+//     // debugger
+//     e.preventDefault()
+//     // const yearInput = document.querySelector("#car-year").value
+//     // const makeInput = document.querySelector("#car-make").value
+//     // const modelInput = document.querySelector("#car-model").value
+//     // const imageInput = document.querySelector("#car-image_url").value
+//     // const originNameInput = document.querySelector("#origins").value
+//     // // const originId = parseInt(originNameInput)
+//     createCar(yearInput, makeInput, modelInput, imageInput, originNameInput)
+// }
 
 // // POST request for cars
 // function postFetch(year, make, model, image_url, origin_id) {

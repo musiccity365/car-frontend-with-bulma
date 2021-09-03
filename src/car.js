@@ -12,11 +12,11 @@ class Car {
         this.image_url = image_url
         this.origin = origin
 
-        // this.element = document.createElement('car-listing')
+        this.element = document.createElement('car-listing')
         // this.element.id = `car-${id}`
         // this.element.dataset.id = id
 
-        // this.element.addEventListener('click', this.deleteCar) //callback function
+        this.element.addEventListener('click', this.deleteCar) //callback function
 
         Car.all.push(this)
             // console.log(this);

@@ -50,6 +50,6 @@ class Origin {
         const option = document.createElement('option')
         option.value = this.id
         option.innerText = this.name
-        dropdown.append(option)
+        // dropdown.append(option)
     }
 }
