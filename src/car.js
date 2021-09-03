@@ -42,10 +42,44 @@ class Car {
 
     }
 
-    static setYearInput(){
-        yearInput = document.getElementById("car-year").value;
-        this.year = carYear;
-    }
+    // createCarForm = (e) => {
+
+    //     carForm.innerHTML += `
+    //     <form id="car-form">
+
+    //     </form>`
+
+    // }
+
+    // createFormHandler = (e) => {
+    //     yearInput = document.querySelector("#car-year").value
+    //     makeInput = document.querySelector("#car-make").value
+    //     modelInput = document.querySelector("#car-model").value
+    //     imageInput = document.querySelector("#car-image_url").value
+    //     originNameInput = document.querySelector("#origins").value
+    //     originId = parseInt(originNameInput)
+    //     this.createCarForm()
+    // }
+    // setYearInput(){
+    //     yearInput = document.querySelector("#car-year").value
+    //     this.year = carYear
+    // }
+    // setMakeInput(){
+    //     makeInput = document.querySelector("#car-make").value
+    //     this.make = carMake
+    // }
+    // setModelInput(){
+    //     modelInput = document.querySelector("#car-model").value
+    //     this.model = carModel
+    // }
+    // setImageInput(){
+    //     imageInput = document.querySelector("#car-image_url").value
+    //     this.image_url = carImage_Url
+    // }
+    // setOriginInput(){
+    //     originNameInput = document.querySelector("#origin-name").value
+    //     this.origin = carOrigin
+    // }
 
     deleteCar = (e) => {
         this.element.remove()

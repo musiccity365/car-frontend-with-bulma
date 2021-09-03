@@ -1,8 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
     CarApi.getCars()
     OriginApi.getOrigins()
+// debugger
 
-    yearInput.addEventListener("change", (e) => {})
+    Car.createCarForm = document.querySelector("#car-form")
+    createCarForm.addEventListener("submit", (e) => {Car.createFormHandler(e)})
+    //     // listen for "click" event on car container
+    // fleet = document.querySelector("#car-fleet")
+
+    // yearInput.addEventListener("change", (e) => {Car.setYearInput(e)})
+    // makeInput.addEventListener("change", (e) => {Car.setMakeInput(e)})
+    // modelInput.addEventListener("change", (e) => {Car.setModelInput(e)})
+    // imageInput.addEventListener("change", (e) => {Car.setImageInput(e)})
+    // originNameInput.addEventListener("change", (e) => {Car.setOriginInput(e)})
+
+    // const formData = document.getElementById("car-form")
+    // formData.addEventListener("submit", (e) => {CarApi.createFormHandler(e)})
 })
 
 // function handleFormSubmit(e) {
@@ -17,14 +30,14 @@ const carsURL = endPoint + "/api/v1/cars"
 
 let fleet = document.getElementById("car-fleet")
 
-let form = document.getElementById("car-form")
-let yearInput = document.getElementById("car-year")
-let makeInput = document.getElementById("car-make")
-let modelInput = document.getElementById("car-model")
-let imageInput = document.getElementById("car-image_url")
 
-const dropdown = document.getElementById("origin-dropdown")
-const originNameInput = document.getElementById("origin-name")
+let yearInput 
+let makeInput 
+let modelInput 
+let imageInput 
+let dropdown = document.getElementById("origin-dropdown")
+// let originNameInput 
+CarApi.createCar()
 
 
 // document.addEventListener("DOMContentLoaded", () => {
@@ -78,9 +91,9 @@ const originNameInput = document.getElementById("origin-name")
 //     const makeInput = document.querySelector("#car-make").value
 //     const modelInput = document.querySelector("#car-model").value
 //     const imageInput = document.querySelector("#car-image_url").value
-//     const originInput = document.querySelector("#origins").value
-//     const originId = parseInt(originInput)
-//     postFetch(yearInput, makeInput, modelInput, imageInput, originInput)
+//     const originNameInput = document.querySelector("#origins").value
+//     // const originId = parseInt(originNameInput)
+//     createCar(yearInput, makeInput, modelInput, imageInput, originNameInput)
 // }
 
 // // POST request for cars
