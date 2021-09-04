@@ -1,18 +1,24 @@
 class CarApi {
     static endPoint = "http://localhost:3000/api/v1/cars";
-
+    // GET request for cars
     static getCars() {
-        fetch(this.endPoint)
-            .then(resp => resp.json())
-            .then(data => {
-                data["data"].forEach(car => {
-                    const c = new Car({ id: car.id, ...car.attributes })
-                        // debugger
-                    c.renderCarListing()
+            fetch(this.endPoint)
+                .then(resp => resp.json())
+                .then(data => {
+                    data["data"].forEach(car => {
+                        let c = new Car({ id: car.id, ...car.attributes })
+                        c.renderCarListing()
+                    })
                 })
-            })
-    }
+        }
+        /*  CREATE - Create a new car
+            1. Create a car form
+            2. Add an Event Listener            
+            3. Submit form, and fetch post to backend
+            4. Do something with the returned object
+         */
 
+    // POST request for cars
     static createCar() {
         const formData = {
             year: yearInput.value,
@@ -34,8 +40,8 @@ class CarApi {
         fetch(this.endPoint, configObj)
             .then(r => r.json())
             .then(data => {
-                const car = data.data
-                const c = new Car({ id: car.id, ...car.attributes })
+                let car = data.data
+                let c = new Car({ id: car.id, ...car.attributes })
                 c.renderCarListing()
             })
     }

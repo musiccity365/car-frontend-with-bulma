@@ -27,27 +27,27 @@ class Origin {
     //     this.addListeners()
     // }
 
-    addListeners() {
-        this.element.addEventListener('click', this.setActiveOrigin)
-    }
+    // addListeners() {
+    //     this.element.addEventListener('click', this.setActiveOrigin)
+    // }
 
-    setActiveOrigin = (e) => {
-        let filteredOrigin
-        Origin.all.forEach(o => {
-            if (o.element === this.element && !this.active) {
-                o.element.classList.add('activated')
-                o.active = true
-                filteredOrigin = o
-            } else {
-                o.element.classList.remove('activated')
-                o.active = false
-            }
-        })
-        Car.filterByOrigin(filteredOrigin)
-    }
+    // setActiveOrigin = (e) => {
+    //     let filteredOrigin
+    //     Origin.all.forEach(o => {
+    //         if (o.element === this.element && !this.active) {
+    //             o.element.classList.add('activated')
+    //             o.active = true
+    //             filteredOrigin = o
+    //         } else {
+    //             o.element.classList.remove('activated')
+    //             o.active = false
+    //         }
+    //     })
+    //     Car.filterByOrigin(filteredOrigin)
+    // }
 
     addToDropDown() {
-        const option = document.createElement('option')
+        let option = document.createElement('option')
         option.value = this.id
         option.innerText = this.name
         dropdown.append(option)

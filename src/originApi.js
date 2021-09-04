@@ -6,12 +6,11 @@ class OriginApi {
             .then(r => r.json())
             .then(json => {
                 json["data"].forEach(element => {
-                    const o = new Origin({
-                        id: element.id,
-                        ...element.attributes
-                    })
-                    // o.addToDom()
-                    
+                    let o = new Origin({
+                            id: element.id,
+                            ...element.attributes
+                        })
+                        // o.addToDom()
                     o.addToDropDown()
                 })
             })
