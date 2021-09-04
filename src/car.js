@@ -52,7 +52,7 @@ class Car {
 
     deleteCar = (e) => {
         // console.log(id)
-        this.element.id.match(RegExp)
+        this.element.remove()
         CarApi.deleteCar(e)
     }
 
